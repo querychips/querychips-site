@@ -5,93 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QueryChips – The Map of Human Curiosity</title>
   <meta name="description" content="QueryChips shows how the world searches — a live map of human curiosity, built from real search queries." />
-
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="/favicon.ico" />
   <style>
+    :root { --bg:#0f1116; --fg:#f9f9f9; --muted:#bdbdbd; --brand:#0072ff; --brand2:#00c6ff; }
+    * { box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: "Inter", Arial, sans-serif;
-      background: #0f1116;
-      color: #f9f9f9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
+      margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Inter", Arial, sans-serif;
+      background: var(--bg); color: var(--fg);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 100vh; text-align: center; padding: 2rem;
     }
-
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 2rem auto;
-      color: #ccc;
-    }
-
-    .email-box {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-
+    header { position: absolute; top: 16px; left: 16px; display: flex; align-items: center; gap: 10px; opacity: 0.9; }
+    header img { width: 28px; height: 28px; }
+    header .name { font-weight: 600; letter-spacing: 0.3px; color: #eaeaea; }
+    h1 { font-size: 2.8rem; margin: 0.5rem 0 0.5rem 0;
+      background: linear-gradient(90deg, var(--brand2), var(--brand));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    p.lead { font-size: 1.2rem; max-width: 640px; margin: 0 auto 1.75rem; color: var(--muted); }
+    .demo-chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 2rem; }
+    .chip { padding: 10px 14px; border-radius: 999px; background: #1b2130; border: 1px solid #2a344a; font-size: 0.95rem; }
+    .chip .bar { display:inline-block; height:6px; width:60px; margin-left:8px; border-radius:4px; background: linear-gradient(90deg, var(--brand2), var(--brand)); vertical-align: middle; }
+    .email-box { display: flex; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; gap:0; }
     input[type="email"] {
-      padding: 0.8rem 1rem;
-      border: none;
-      border-radius: 6px 0 0 6px;
-      width: 260px;
-      font-size: 1rem;
-      outline: none;
+      padding: 0.9rem 1rem; border: 1px solid #2a344a; background:#0f141f; color:#fff;
+      border-radius: 10px 0 0 10px; width: 280px; font-size: 1rem; outline: none;
     }
-
     button {
-      padding: 0.8rem 1.2rem;
-      border: none;
-      border-radius: 0 6px 6px 0;
-      background: #0072ff;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s;
+      padding: 0.95rem 1.2rem; border: none; border-radius: 0 10px 10px 0;
+      background: var(--brand); color: white; font-size: 1rem; cursor: pointer; transition: 0.25s;
     }
-
-    button:hover {
-      background: #0055cc;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      p { font-size: 1rem; }
-      input[type="email"] { width: 200px; }
+    button:hover { filter: brightness(0.9); }
+    footer { position: absolute; bottom: 14px; font-size: 0.9rem; color: #7a7a7a; left: 0; right: 0; }
+    a { color: #9ecbff; text-decoration: none; }
+    @media (max-width: 640px) {
+      h1 { font-size: 2.1rem; }
+      p.lead { font-size: 1rem; }
+      input[type="email"] { width: 220px; }
+      header { position: static; margin-bottom: 12px; justify-content: center; }
+      footer { position: static; margin-top: 24px; }
+      body { min-height: 0; }
     }
   </style>
 </head>
 <body>
+  <header>
+    <img src="/assets/logo.svg" alt="QueryChips logo" />
+    <div class="name">QueryChips</div>
+  </header>
+
   <main>
-    <h1>QueryChips</h1>
-    <p>Explore how the world searches — an interactive map of human curiosity, built from real search queries.</p>
+    <h1>See the structure behind every search</h1>
+    <p class="lead">QueryChips is an interactive map of human curiosity — built from real search queries. Start with a word, then explore chips that reveal the top needs and branches.</p>
+
+    <div class="demo-chips" aria-label="Example chips">
+      <div class="chip">Dog <span class="bar"></span></div>
+      <div class="chip">Training <span class="bar"></span></div>
+      <div class="chip">Names <span class="bar"></span></div>
+      <div class="chip">Care & Health <span class="bar"></span></div>
+      <div class="chip">Products <span class="bar"></span></div>
+      <div class="chip">Breeds <span class="bar"></span></div>
+    </div>
 
     <form class="email-box" action="https://formspree.io/f/yourformid" method="POST">
       <input type="email" name="email" placeholder="Enter your email to get updates" required />
       <button type="submit">Join Early Access</button>
     </form>
+
+    <p class="lead" style="margin-top:0.5rem">Founder updates on X: <a href="https://x.com" target="_blank" rel="noopener">follow along</a></p>
   </main>
 
-  <footer>© 2025 QueryChips — Powered by curiosity</footer>
+  <footer>© 2025 QueryChips — The map of human curiosity</footer>
 </body>
 </html>
