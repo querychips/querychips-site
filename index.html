@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QueryChips – The Map of Human Curiosity</title>
+  <meta name="description" content="QueryChips shows how the world searches — a live map of human curiosity, built from real search queries." />
+
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      background: #0f1116;
+      color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      color: #ccc;
+    }
+
+    .email-box {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    input[type="email"] {
+      padding: 0.8rem 1rem;
+      border: none;
+      border-radius: 6px 0 0 6px;
+      width: 260px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    button {
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 0 6px 6px 0;
+      background: #0072ff;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0055cc;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      p { font-size: 1rem; }
+      input[type="email"] { width: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>QueryChips</h1>
+    <p>Explore how the world searches — an interactive map of human curiosity, built from real search queries.</p>
+
+    <form class="email-box" action="https://formspree.io/f/yourformid" method="POST">
+      <input type="email" name="email" placeholder="Enter your email to get updates" required />
+      <button type="submit">Join Early Access</button>
+    </form>
+  </main>
+
+  <footer>© 2025 QueryChips — Powered by curiosity</footer>
+</body>
+</html>
